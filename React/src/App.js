@@ -1,5 +1,5 @@
 import React from 'react';
-import Qa from "./components/Qa"
+import Qa from "./components/QuestionList"
 import './App.css';
 
 const App = () => {
