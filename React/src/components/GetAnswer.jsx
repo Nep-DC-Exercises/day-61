@@ -28,6 +28,7 @@ const List = () => {
             newType: t
         });
     };
+    
     const getResponse = async userQuestion => {
         let encodedQuestion = encodeURI(userQuestion);
         let url = "https://8ball.delegator.com/magic/JSON/" + encodedQuestion;

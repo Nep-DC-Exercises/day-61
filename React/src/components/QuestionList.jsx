@@ -1,4 +1,4 @@
-import React, { useReducer, useState } from "react";
+import React, { useReducer } from "react";
 import { StateProvider } from "../context";
 import GetAnswer from "./GetAnswer";
 import nextId from "react-id-generator";
