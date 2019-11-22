@@ -17,7 +17,9 @@ const List = () => {
         const q = response.data.magic.question;
         const a = response.data.magic.answer;
         const t = response.data.magic.type;
+        
         updateState(q, a, t);
+        postQuestion(q, a, t);
     };
 
     const updateState = (q, a, t) => {
@@ -28,7 +30,22 @@ const List = () => {
             newType: t
         });
     };
-    
+
+    const postQuestion = async (q, a, t) => {
+        const url = `/api/add`;
+        const body = JSON.stringify({
+            question: q,
+            answer: a,
+            type: t
+        });
+
+        Axios.post(url, body, {
+            headers: {
+                "Content-Type": "application/json"
+            }
+        });
+    };
+
     const getResponse = async userQuestion => {
         let encodedQuestion = encodeURI(userQuestion);
         let url = "https://8ball.delegator.com/magic/JSON/" + encodedQuestion;
@@ -51,8 +68,7 @@ const List = () => {
                 <input type="submit" value="Submit" />
             </form>
             <ul>
-                {
-                Object.keys(value.data).map(response => {
+                {Object.keys(value.data).map(response => {
                     return (
                         <li key={response}>
                             <p>{value.data[response].question}</p>
@@ -60,8 +76,7 @@ const List = () => {
                             <p>{value.data[response].type}</p>
                         </li>
                     );
-                })
-                }
+                })}
             </ul>
         </>
     );

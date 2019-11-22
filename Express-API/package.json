@@ -5,7 +5,7 @@
   "scripts": {
     "start": "node ./bin/www",
     "dev": "nodemon ./bin/www",
-    "db:reset": "dropdb react-blog; bash restore-db.sh"
+    "db:reset": "dropdb magic-eight-ball; bash restore-db.sh"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
