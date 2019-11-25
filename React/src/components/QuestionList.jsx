@@ -1,7 +1,10 @@
 import React, { useReducer } from "react";
 import { StateProvider } from "../context";
 import GetAnswer from "./GetAnswer";
+import {Container, Box} from "bloomer"
 import nextId from "react-id-generator";
+import 'bulma/css/bulma.css'
+import magicBall from "../images/magicBallStart.png"
 
 const QuestionList = () => {
     const initialState = {
@@ -36,7 +39,12 @@ const QuestionList = () => {
 
     return (
         <div>
-            <h1>Magic Eight Ball</h1>
+            <Container style={{textAlign: "center" }}>
+                <Box style={{backgroundColor: "blanchedalmond"}}>
+                    <h1 style={{fontSize: "1.6rem", fontWeight: "700"}}>Magic Eight Ball</h1>
+                    <img src={magicBall} style={{width: "25%"}}></img>
+                </Box>
+            </Container>
             <StateProvider value={useReducer(reducer, initialState)}>
                 <GetAnswer />
             </StateProvider>

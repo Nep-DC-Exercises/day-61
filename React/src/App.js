@@ -1,11 +1,15 @@
-import React from 'react';
-import Qa from "./components/QuestionList"
-import './App.css';
+import React from "react";
+import { Container, Box } from "bloomer";
+import Qa from "./components/QuestionList";
+import "bulma/css/bulma.css";
+import "./App.css";
 
 const App = () => {
-  return (
-    <Qa />
-  );
-}
+    return (
+        <Container>
+            <Qa />
+        </Container>
+    );
+};
 
 export default App;

@@ -1,10 +1,12 @@
 import React, { useContext, useState } from "react";
+import { Container, Field, Control, Label, Input, Box, Button } from "bloomer";
 import StateContext from "../context";
 import Axios from "axios";
+import "bulma/css/bulma.css";
 
 const List = () => {
     const [value, dispatch] = useContext(StateContext);
-    const [newQuestion, setQuestion] = useState();
+    let [newQuestion, setQuestion] = useState();
 
     const handleChangeQuestion = e => {
         setQuestion(e.target.value);
@@ -17,7 +19,7 @@ const List = () => {
         const q = response.data.magic.question;
         const a = response.data.magic.answer;
         const t = response.data.magic.type;
-        
+
         updateState(q, a, t);
         postQuestion(q, a, t);
     };
@@ -55,29 +57,47 @@ const List = () => {
 
     return (
         <>
-            <form onSubmit={e => handleSubmit(e)}>
-                <label>
-                    Ask me anything!
-                    <input
-                        type="text"
-                        name="question"
-                        placeholder="Ask me anything"
-                        onChange={e => handleChangeQuestion(e)}
-                    />
-                </label>
-                <input type="submit" value="Submit" />
-            </form>
-            <ul>
-                {Object.keys(value.data).map(response => {
-                    return (
-                        <li key={response}>
-                            <p>{value.data[response].question}</p>
-                            <p>{value.data[response].answer}</p>
-                            <p>{value.data[response].type}</p>
-                        </li>
-                    );
-                })}
-            </ul>
+            <Container style={{ textAlign: "center", width: "50%" }}>
+                <form onSubmit={e => handleSubmit(e)}>
+                    <Field>
+                        <Label>Ask me anything!</Label>
+                        <Control>
+                            <Input
+                                type="text"
+                                name="question"
+                                placeholder="Ask me anything"
+                                onChange={e => handleChangeQuestion(e)}
+                            />
+                        </Control>
+                    </Field>
+
+                    <Field>
+                        <Control>
+                            <Button
+                                type="submit"
+                                value="Submit"
+                                isColor="primary"
+                            >
+                                Submit
+                            </Button>
+                        </Control>
+                    </Field>
+                </form>
+
+                <Box style={{ width: "50%" }}>
+                    <ul>
+                        {Object.keys(value.data).map(response => {
+                            return (
+                                <li key={response}>
+                                    <p>{value.data[response].question}</p>
+                                    <p>{value.data[response].answer}</p>
+                                    <p>{value.data[response].type}</p>
+                                </li>
+                            );
+                        })}
+                    </ul>
+                </Box>
+            </Container>
         </>
     );
 };

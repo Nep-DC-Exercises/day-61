@@ -1,23 +1,11 @@
-Build a React app that takes user input and consults the Magic Eight Ball API
-URL: https://8ball.delegator.com/
+# Magic Eight Ball
 
-Parent Component
-    Accept user input in the form of a question
-    Returns the response from Magic Eight Ball
+## Date: 11/21/19 W13 D4 D61
 
-Child Component
-    Display a list of all questions and their corresponding answers during a single session
+### Summary
 
-Tests
-    At least one Component test (remember tests?)
+This app is a React app that takes user input and consults the Magic Eight Ball API. URL: https://8ball.delegator.com/
 
-     
-BONUS LEVELS
+Any submissions by the user is logged in a postgres table.
 
-Save users' questions and the answers to a database
-Assign categories to question/answer combos
-Make the database searchable by category (read: create your own API of questions/answers)
-
-BONUS PLUS ULTRA
-
-Add the Konami Code: https://github.com/snaptortoise/konami-js
+Technologies used: Postgres, Express, React, Node, and Context API
